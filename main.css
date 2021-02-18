@@ -169,8 +169,14 @@ a, button, input, select {
 	text-transform: uppercase;
 	font-family: 'neue-haas-grotesk-display';
 }
+.rm-about-header{
+	top: 0;
+	left: 0;
+	width: 100%;
+	position: fixed;
+}
 .about-close{
-	position: absolute;
+	position: fixed;
 	top: 50px;
 	right: 75px;
 }
@@ -180,6 +186,7 @@ a, button, input, select {
 .rm-about-content{
 	width: 341px;
 	margin: auto;
+	margin-top: 150px;
 	text-align: center;
 }
 .rm-about-content h1,

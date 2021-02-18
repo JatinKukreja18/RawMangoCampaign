@@ -154,8 +154,10 @@
 				document.body.appendChild( container );
 				const manager = new THREE.LoadingManager();
 
-				camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, .1, 2000 );
-				camera.position.z = .1;
+				camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.z = 1;
+
+
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x9eadba);;
 
@@ -164,17 +166,17 @@
 				scene.add(hlight);
 
 				const spotLight = new THREE.SpotLight( 0xffffff,2);
-				spotLight.position.set( 580, 400, -500 );
+				spotLight.position.set( -410, 400, -700 );
 				scene.add( spotLight );
 
 				const spotLightHelper = new THREE.SpotLightHelper( spotLight );
-				// scene.add( spotLightHelper );
+				scene.add( spotLightHelper );
 
 
 				// model
 				const loader = new FBXLoader(manager);
-				loader.load( 'model/Terrain_13.fbx', function ( object ) {
-					// object.rotation.y = 40;	
+				loader.load( 'model/Terrain_19.fbx', function ( object ) {
+					object.rotation.y = 1.2;	
 					object.traverse( function ( child ) {
 
 						if ( child.isMesh ) {
@@ -206,8 +208,11 @@
 				controls.maxPolarAngle = Math.PI/2;
 				controls.minDistance = -10
 				controls.maxDistance = 10
-				controls.target.set(10, 15, 10);
-				camera.autoRotate = true;
+				// controls.target.set(-30, 15, 200);
+				// controls.target.set(0, 10, 1);
+				// camera.rotation.y = 10;
+				// controls.target.copy(camera.position)
+				// camera.autoRotate = true;
 
 				window.addEventListener( 'resize', onWindowResize );
 				manager.onLoad = function ( ) {

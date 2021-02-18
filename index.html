@@ -37,27 +37,19 @@
 			const maxTop= 18;
 			let finalX =  X;
 			let finalY = Y
-			if(Y > 64){
-				finalY = 64
+			if(Y > 70){
+				finalY = 70
 			}
-			if(Y < 36){
-				finalY = 36
+			if(Y < 40){
+				finalY = 40
 			}
-			if(X > 88){
-				finalX = 88
+			if(X > 95){
+				finalX = 95
 			}
 			const minTop= 3;
 			document.querySelector('.pupil1').style.transform = "translate(" + finalX + "%," + (finalY - 36) + "%)";
 			document.querySelector('.pupil2').style.transform = "translate(" + finalX + "%," + (finalY - 36) + "%)";
-			// if((X * maxLeft )/100 + minLeft < maxLeft){
-			// 	document.querySelector('.pupil1').style.left = ((X * maxLeft )/100 + minLeft) + '%';
-			// 	document.querySelector('.pupil2').style.left = ((X * maxLeft )/100 + minLeft) + '%';
-			// 	// document.querySelector('.pupil').style.left = (xoffset * maxLeft )/100 + '%';
-			// }
-			// if((Y * maxTop )/100 + minTop < maxTop){
-			// 	document.querySelector('.pupil1').style.top = ((Y * maxTop )/100 + minTop) + '%';
-			// 	document.querySelector('.pupil2').style.top = ((Y * maxTop )/100 + minTop) + '%';
-			// }
+			
 			if(Y < 5){
 				document.querySelector('.raw-overlay').style.opacity =  1 
 			}
@@ -75,9 +67,20 @@
 				<div class="loader-num">0%</div>
 			</div>
 		</div>
+		<div class="rm-intro">
+			<img src="./assets/mouse.svg" alt="" srcset="">
+			<span>CLICK AND DRAG OR MOVE CURSOR</span>	
+		</div>
+		<div class="rm-intro-mobile">
+			<img src="./assets/phone.svg" alt="" srcset="">
+			<span>TAP AND DRAG </span>
+		</div>
 		<div class="rm-footer-layer"></div>
 		<div class="rm-logo fade">
 			<img src="./assets/logo.png" alt="">
+		</div>
+		<div class="rm-logo-mobile fade">
+			<img src="./assets/logo-mobile.png" alt="">
 		</div>
 		<div class="rm-home-navigation fade">
 			<ul class="linklist red">
@@ -227,10 +230,15 @@
 					// document.querySelectorAll('.fade')[3].classList.add('in');
 					document.querySelector('canvas').addEventListener('touchmove',initiateInteractionMobile);
 					setTimeout(() => {
-						document.querySelectorAll('.fade')[0].classList.add('in');
-						document.querySelectorAll('.fade')[1].classList.add('in');
-						document.querySelectorAll('.fade')[2].classList.add('in');
+						for(var i = 0;i<document.querySelectorAll('.fade').length;i++){
+							document.querySelectorAll('.fade')[i].classList.add('in');
+
+						}
 					}, 300);
+					setTimeout(() => {
+						if(document.querySelector('.rm-intro')) document.querySelector('.rm-intro').classList.add('hide');
+						if(document.querySelector('.rm-intro-mobile')) document.querySelector('.rm-intro-mobile').classList.add('hide');
+					}, 5000);
 				};
 
 

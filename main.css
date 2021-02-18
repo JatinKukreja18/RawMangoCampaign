@@ -107,7 +107,7 @@ a, button, input, select {
 }
 .righteye .pupil2,
 .lefteye .pupil1{
-	width: 38px;
+	width: 34px;
     position: absolute;
     top: 20%;
     left: 24%;
@@ -160,6 +160,9 @@ a, button, input, select {
 }
 .linklist-item{
 	margin-right: 30px;
+}
+.linklist-item:last-of-type{
+	margin-right: 0;
 }
 .linklist-item a{
 	font-size: 16px;
@@ -319,4 +322,118 @@ a, button, input, select {
 }
 .rm-loader-pos img{
 	width: 260px;
+}
+
+.rm-logo-mobile{
+	display: none;
+}
+.rm-intro,.rm-intro-mobile{
+	position: absolute;
+    bottom: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+	pointer-events: none;
+	transition: 1s;
+	opacity: 1;
+	width: 100%;
+}
+.rm-intro.hide,.rm-intro-mobile.hide{
+	opacity: 0;
+}
+.rm-intro-mobile{
+	display: none;
+}
+@media only screen and (max-width: 950px	){
+	.rm-container{
+		padding: 0 40px;
+	}
+	.rm-logo{
+		left: 40px;
+	}
+	.rm-home-navigation{
+		right: 40px;
+	}
+}
+@media only screen and (max-width: 850px){
+	.rm-container{
+		padding: 0 40px;
+	}
+	.rm-logo{
+		display: none;
+	}
+	.rm-logo-mobile{
+		position: fixed;
+		display: inline;
+		left: 50%;
+		width: 160px;
+		top: 30px;
+		transform: translateX(-50%);
+	}
+	.rm-logo-mobile img{
+		width: 100%;
+	}
+	.rm-home-navigation{
+		right: 0%;
+		width: 100%;
+		/* transform: translateX(50%); */
+		text-align: center;
+	}
+	.rm-home-navigation ul {
+		width: auto;
+		display: inline-flex;
+	}
+}
+@media only screen and (max-width: 767px){
+	.rm-intro{
+		display: none;
+	}
+	.rm-intro-mobile{
+		display: flex;
+	}
+	.rm-loader{
+		background-image: url('./assets/creepy.jpg');
+	}
+	.rm-home-navigation{
+		right: 0%;
+		width: 100%;
+		/* transform: translateX(50%); */
+		text-align: center;
+	}
+	.linklist-item a{
+		margin-right: 0;
+	}
+	.linklist-item img,
+	.linklist-item svg{
+		display: none;
+	}
+	.rm-about-header{
+		pointer-events: none;
+		height: 100vh;
+		padding-top: 0;
+	}
+	.about-close{
+		width: 20px;
+		right: 40px;
+		top: 40px;
+	}
+	.about-close img{
+		width: 100%;
+	}
+	#about-navigation{
+		position: fixed;
+		bottom: 0;
+		pointer-events: all;
+		padding: 20px 0;
+		justify-content: center;
+		width: 100%;
+		left: 0;
+		background-color: #fc0201;
+	}
+	.rm-about-content{
+		margin-top: 138px;
+		width: 100%;
+		max-width: 340px;
+	}
 }

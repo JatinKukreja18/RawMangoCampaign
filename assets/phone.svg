@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="66" viewBox="0 0 58 66">
+    <defs>
+        <filter id="pnyxtkd59a" width="143.4%" height="368.2%" x="-21.7%" y="-134.1%" filterUnits="objectBoundingBox">
+            <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7.5"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.598694274 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g stroke="#FFF" stroke-width="1.254">
+            <g filter="url(#pnyxtkd59a)" transform="translate(-117 -594) translate(139 616)">
+                <g transform="translate(.863 .627)">
+                    <rect width="12" height="20" x=".137" y=".373" rx="2"/>
+                    <path d="M12.137 15.394L0.137 15.352"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

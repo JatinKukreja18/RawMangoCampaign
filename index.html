@@ -17,13 +17,6 @@
 		const wait = setInterval(() => {
 			if(document.querySelector('canvas')){
 				clearInterval(wait);
-				document.querySelector('canvas').addEventListener('touchmove',initiateInteractionMobile);
-				setTimeout(() => {
-					document.querySelectorAll('.fade')[0].classList.add('in');
-					document.querySelectorAll('.fade')[1].classList.add('in');
-					document.querySelectorAll('.fade')[2].classList.add('in');
-					document.querySelectorAll('.fade')[3].classList.add('in');
-				}, 1000);
 			}
 		}, 100);
 
@@ -76,6 +69,7 @@
 		}
 	</script>
 	<body>
+		<div class="loader-num"></div>
 		<div class="rm-footer-layer"></div>
 		<div class="rm-logo fade">
 			<img src="./assets/logo.png" alt="">
@@ -124,7 +118,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="raw-overlay fade"></div>
+		<div class="raw-overlay "></div>
 		<div class="eyeballs fade">
 			<div class="lefteye">
 				<img src="./assets/Eye ball_2x.png" class="pupil1" alt="" srcset="">
@@ -158,6 +152,7 @@
 
 				const container = document.createElement( 'div' );
 				document.body.appendChild( container );
+				const manager = new THREE.LoadingManager();
 
 				camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, .1, 2000 );
 				camera.position.z = .1;
@@ -177,7 +172,7 @@
 
 
 				// model
-				const loader = new FBXLoader();
+				const loader = new FBXLoader(manager);
 				loader.load( 'model/Terrain_13.fbx', function ( object ) {
 					// object.rotation.y = 40;	
 					object.traverse( function ( child ) {
@@ -215,8 +210,31 @@
 				camera.autoRotate = true;
 
 				window.addEventListener( 'resize', onWindowResize );
+				manager.onLoad = function ( ) {
+
+					console.log( 'Loading complete!');
+					document.querySelectorAll('.fade')[0].classList.add('in');
+					document.querySelectorAll('.fade')[1].classList.add('in');
+					document.querySelectorAll('.fade')[2].classList.add('in');
+					// document.querySelectorAll('.fade')[3].classList.add('in');
+					document.querySelector('canvas').addEventListener('touchmove',initiateInteractionMobile);
+
+				};
 
 
+				manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+
+
+					document.querySelector('.loader-num').innerHTML = Math.round(itemsLoaded/itemsTotal*100) +'%';
+					console.log(  Math.round(itemsLoaded/itemsTotal)*100 +'%' );
+
+				};
+
+				manager.onError = function ( url ) {
+
+					console.log( 'There was an error loading ' + url );
+
+				};
 			}
 
 			function onWindowResize() {

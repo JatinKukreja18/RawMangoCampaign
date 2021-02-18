@@ -282,3 +282,7 @@ a, button, input, select {
 .fade.in{
 	opacity: 1;
 }
+.loader-num{
+	position: fixed;
+	font: 100px;
+}

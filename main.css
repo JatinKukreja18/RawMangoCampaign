@@ -291,6 +291,32 @@ a, button, input, select {
 	opacity: 1;
 }
 .loader-num{
+	/* position: fixed; */
+	/* font: 100px; */
+	color: #ff0000;
+}
+.rm-loader{
+	width: 100vw;
+	height: 100vh;
+	z-index: 5;
+	display: flex;
+	background-image: url('./assets/creepy-desktop.png');
+	background-size: cover;
+	background-repeat: repeat;
 	position: fixed;
-	font: 100px;
+}
+.rm-loader.hide{
+	display: none;
+}
+.rm-loader-pos{
+	margin-top: auto;
+	padding-bottom: 90px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	width:100%;
+}
+.rm-loader-pos img{
+	width: 260px;
 }

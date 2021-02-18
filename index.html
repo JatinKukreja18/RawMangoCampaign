@@ -69,7 +69,12 @@
 		}
 	</script>
 	<body>
-		<div class="loader-num"></div>
+		<div class="rm-loader ">
+			<div class="rm-loader-pos">
+				<img src="./assets/RM_Other_TypeAnimation_full-logo.gif" alt="" srcset="">
+				<div class="loader-num">0%</div>
+			</div>
+		</div>
 		<div class="rm-footer-layer"></div>
 		<div class="rm-logo fade">
 			<img src="./assets/logo.png" alt="">
@@ -217,13 +222,15 @@
 				window.addEventListener( 'resize', onWindowResize );
 				manager.onLoad = function ( ) {
 
+					document.querySelector('.rm-loader').classList.add('hide')
 					console.log( 'Loading complete!');
-					document.querySelectorAll('.fade')[0].classList.add('in');
-					document.querySelectorAll('.fade')[1].classList.add('in');
-					document.querySelectorAll('.fade')[2].classList.add('in');
 					// document.querySelectorAll('.fade')[3].classList.add('in');
 					document.querySelector('canvas').addEventListener('touchmove',initiateInteractionMobile);
-
+					setTimeout(() => {
+						document.querySelectorAll('.fade')[0].classList.add('in');
+						document.querySelectorAll('.fade')[1].classList.add('in');
+						document.querySelectorAll('.fade')[2].classList.add('in');
+					}, 300);
 				};
 
 

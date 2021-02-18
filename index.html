@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl - FBX loader</title>
+		<title>Others - Raw Mango</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="https://use.typekit.net/mtx0lou.css">
 		<link type="text/css" rel="stylesheet" href="main.css">
 	</head>
-	<!-- <script>
+	<script>
 		window.addEventListener('mousemove',initiateInteraction);
 		window.addEventListener('touchmove',initiateInteractionMobile);
 		window.addEventListener("orientationchange", function(e){
@@ -68,9 +69,56 @@
 				document.querySelector('.raw-overlay').style.opacity = 0
 			}
 		}
-	</script> -->
+	</script>
 	<body>
-		<!-- <div class="raw-overlay"></div>
+		<div class="rm-logo">
+			<img src="./assets/logo.png" alt="">
+		</div>
+		<div class="rm-home-navigation">
+			<ul class="linklist red">
+				<li class="linklist-item">
+					<a href="./about.html">
+						ABOUT
+					</a>
+					
+				</li>
+				<li class="linklist-item">
+					<a>
+						MAIN SITE
+					</a>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="13" viewBox="0 0 24 13">
+						<g fill="none" fill-rule="evenodd">
+							<g fill="currentColor" fill-rule="nonzero">
+								<g>
+									<g>
+										<path d="M18.353 0.875L16.941 2.355 20.168 5.513 0 5.513 0 7.487 20.168 7.487 16.941 10.743 18.353 12.125 24 6.5z" transform="translate(-365 -55) translate(70 52) translate(295 3)" fill="currentColor"/>
+									</g>
+								</g>
+							</g>
+						</g>
+					</svg>
+					
+				</li>
+				<li class="linklist-item">
+					<a>
+						SHOP COLLECTION
+					</a>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="13" viewBox="0 0 24 13">
+						<g fill="none" fill-rule="evenodd">
+							<g fill="currentColor" fill-rule="nonzero">
+								<g>
+									<g>
+										<path d="M18.353 0.875L16.941 2.355 20.168 5.513 0 5.513 0 7.487 20.168 7.487 16.941 10.743 18.353 12.125 24 6.5z" transform="translate(-365 -55) translate(70 52) translate(295 3)" fill="currentColor"/>
+									</g>
+								</g>
+							</g>
+						</g>
+					</svg>
+					
+				</li>
+			</ul>
+		</div>
+		<div class="raw-overlay"></div>
 		<div class="eyeballs">
 			<div class="lefteye">
 				<img src="./assets//Eye ball_2x.png" class="pupil1" alt="" srcset="">
@@ -80,7 +128,7 @@
 				<img src="./assets//Eye ball_2x.png" class="pupil2" alt="" srcset="">
 				<img src="./assets/Eye right 2x.png" alt="" srcset="">
 			</div>
-		</div> -->
+		</div>
 		<script type="module">
 
 			import * as THREE from './build/three.module.js';
@@ -105,73 +153,27 @@
 				const container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
-				camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 2000 );
-				// camera.position.set( 250, 10, 0 );
-				// camera.position.x = -200;
-				camera.position.y = 1080;
-				// camera.position.z = 10;
-				camera.position.z = 1;
+				camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, .1, 2000 );
+				camera.position.z = .1;
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0xa0a0a0 );
-				// scene.fog = new THREE.Fog( 0xa0a0a0, 200, 1000 );
+				scene.background = new THREE.Color( 0xa0a0a0 );;
 
-				// const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444 );
-				// hemiLight.position.set( 0, 200, 0 );
-				// scene.add( hemiLight );
+				// add light
 				const hlight = new THREE.AmbientLight (0xffffff,1.2);
 				scene.add(hlight);
-				const dirLight = new THREE.DirectionalLight( 0xffffff,1);
-				dirLight.position.set( 200, 400, -100 );
-				dirLight.castShadow = true;
-				const dirLight2 = new THREE.DirectionalLight( 0xffffff,1);
-				dirLight2.position.set( 400, 400, -100 );
-				dirLight2.castShadow = true;
-				
-				// dirLight.shadow.camera.top = 180;
-				// dirLight.shadow.camera.bottom = - 100;
-				// dirLight.shadow.camera.left = - 120;
-				// dirLight.shadow.camera.right = 120;
-				// scene.add( dirLight );
-				// scene.add( dirLight2 );
-
-				// scene.add( new THREE.CameraHelper( dirLight.shadow.camera ) );
-				// scene.add( new THREE.CameraHelper( dirLight2.shadow.camera ) );
 
 				const spotLight = new THREE.SpotLight( 0xffffff,2);
 				spotLight.position.set( 580, 400, -500 );
 				scene.add( spotLight );
 
 				const spotLightHelper = new THREE.SpotLightHelper( spotLight );
-				scene.add( spotLightHelper );
+				// scene.add( spotLightHelper );
 
-				// const pointLight = new THREE.PointLight( 0xffffff, 2, 1000 );
-				// pointLight.position.set( 10, 10, 10 );
-				// scene.add( pointLight );
-
-				// const sphereSize = 1;
-				// const pointLightHelper = new THREE.PointLightHelper( pointLight, sphereSize );
-				// scene.add( pointLightHelper );
-				// ground
-				// const mesh = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );
-				// mesh.rotation.x = - Math.PI / 2;
-				// mesh.receiveShadow = true;
-				// scene.add( mesh );
-
-				const grid = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
-				grid.material.opacity = 0.2;
-				grid.material.transparent = true;
-				scene.add( grid );
 
 				// model
 				const loader = new FBXLoader();
-				loader.load( 'model/Terrain_12.fbx', function ( object ) {
-
-					// mixer = new THREE.AnimationMixer( object );
-
-					// const action = mixer.clipAction( object.animations[ 0 ] );
-					// action.play();
+				loader.load( 'model/Terrain_13.fbx', function ( object ) {
 					// object.rotation.y = 40;	
-
 					object.traverse( function ( child ) {
 
 						if ( child.isMesh ) {
@@ -196,32 +198,18 @@
 				controls = new OrbitControls( camera, renderer.domElement );
 				// controls.enableZoom = false;
 				controls.enablePan = false;
+				controls.dampingFactor = 0.05;
 				controls.enableDamping = true;
-				// controls.rotateSpeed = - 0.25;
-				// controls.minPolarAngle = Math.PI/2;
-				// controls.maxPolarAngle = Math.PI/2;
-				// controls.minDistance = -10
-				// controls.maxDistance = 10
-				// controls.target.set(250, 10, 0);
-				
-				// controls.target.copy(camera.position)
-
-				// camera.autoRotate = true;
-				// controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
-				// controls.dampingFactor = 0.05;
-
-				// controls.screenSpacePanning = false;
-
-				// controls.minDistance = 100;
-				// controls.maxDistance = 500;
-
-				// controls.maxPolarAngle = Math.PI / 2;
+				controls.rotateSpeed = - 0.25;
+				controls.minPolarAngle = Math.PI/2;
+				controls.maxPolarAngle = Math.PI/2;
+				controls.minDistance = -10
+				controls.maxDistance = 10
+				controls.target.set(10, 15, 10);
+				camera.autoRotate = true;
 
 				window.addEventListener( 'resize', onWindowResize );
 
-				// stats
-				stats = new Stats();
-				container.appendChild( stats.dom );
 
 			}
 
@@ -242,7 +230,6 @@
 
 				const delta = clock.getDelta();
 
-				// if ( mixer ) mixer.update( delta );
 				controls.update();
 
 				renderer.render( scene, camera );

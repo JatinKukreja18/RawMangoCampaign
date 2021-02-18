@@ -18,63 +18,69 @@
 			if(document.querySelector('canvas')){
 				clearInterval(wait);
 				document.querySelector('canvas').addEventListener('touchmove',initiateInteractionMobile);
+				setTimeout(() => {
+					document.querySelectorAll('.fade')[0].classList.add('in');
+					document.querySelectorAll('.fade')[1].classList.add('in');
+					document.querySelectorAll('.fade')[2].classList.add('in');
+					document.querySelectorAll('.fade')[3].classList.add('in');
+				}, 1000);
 			}
 		}, 100);
 
 		function initiateInteraction(e){
-			console.log(e);
 			const xoffset = e.x /window.innerWidth * 100;
 			const yoffset = e.y /window.innerHeight * 100;
-			const minLeft = 32;
-			const maxLeft = 64;
-			const maxTop= 18;
-			const minTop= 3;
-			if((xoffset * maxLeft )/100 + minLeft < maxLeft){
-				document.querySelector('.pupil1').style.left = ((xoffset * maxLeft )/100 + minLeft) + '%';
-				document.querySelector('.pupil2').style.left = ((xoffset * maxLeft )/100 + minLeft) + '%';
-				// document.querySelector('.pupil').style.left = (xoffset * maxLeft )/100 + '%';
-			}
-			if((yoffset * maxTop )/100 + minTop < maxTop){
-				document.querySelector('.pupil1').style.top = ((yoffset * maxTop )/100 + minTop) + '%';
-				document.querySelector('.pupil2').style.top = ((yoffset * maxTop )/100 + minTop) + '%';
-			}
-
-			if(yoffset < 50){
-				document.querySelector('.raw-overlay').style.opacity =  1 - (yoffset/50) ;
-			}else{
-				document.querySelector('.raw-overlay').style.opacity = 0
-			}
+			makeInteraction(xoffset,yoffset)
 		}
 		function initiateInteractionMobile(e){
-			console.log(e);
 			const xoffset = e.touches[0].clientX /window.innerWidth * 100;
 			const yoffset = e.touches[0].clientY/window.innerHeight * 100;
-			const minLeft = 32;
-			const maxLeft = 64;
+			makeInteraction(xoffset,yoffset)
+		
+		}
+		function makeInteraction(X,Y){
+			const minLeft = 24;
+			const maxLeft = 50;
 			const maxTop= 18;
+			let finalX =  X;
+			let finalY = Y
+			if(Y > 64){
+				finalY = 64
+			}
+			if(Y < 36){
+				finalY = 36
+			}
+			if(X > 88){
+				finalX = 88
+			}
 			const minTop= 3;
-			if((xoffset * maxLeft )/100 + minLeft < maxLeft){
-				document.querySelector('.pupil1').style.left = ((xoffset * maxLeft )/100 + minLeft) + '%';
-				document.querySelector('.pupil2').style.left = ((xoffset * maxLeft )/100 + minLeft) + '%';
-				// document.querySelector('.pupil').style.left = (xoffset * maxLeft )/100 + '%';
+			document.querySelector('.pupil1').style.transform = "translate(" + finalX + "%," + (finalY - 36) + "%)";
+			document.querySelector('.pupil2').style.transform = "translate(" + finalX + "%," + (finalY - 36) + "%)";
+			// if((X * maxLeft )/100 + minLeft < maxLeft){
+			// 	document.querySelector('.pupil1').style.left = ((X * maxLeft )/100 + minLeft) + '%';
+			// 	document.querySelector('.pupil2').style.left = ((X * maxLeft )/100 + minLeft) + '%';
+			// 	// document.querySelector('.pupil').style.left = (xoffset * maxLeft )/100 + '%';
+			// }
+			// if((Y * maxTop )/100 + minTop < maxTop){
+			// 	document.querySelector('.pupil1').style.top = ((Y * maxTop )/100 + minTop) + '%';
+			// 	document.querySelector('.pupil2').style.top = ((Y * maxTop )/100 + minTop) + '%';
+			// }
+			if(Y < 5){
+				document.querySelector('.raw-overlay').style.opacity =  1 
 			}
-			if((yoffset * maxTop )/100 + minTop < maxTop){
-				document.querySelector('.pupil1').style.top = ((yoffset * maxTop )/100 + minTop) + '%';
-				document.querySelector('.pupil2').style.top = ((yoffset * maxTop )/100 + minTop) + '%';
-			}
-
-			if(yoffset < 50){
-				document.querySelector('.raw-overlay').style.opacity =  1 - (yoffset/50) ;
+			else if(Y < 50 & Y > 5){
+				document.querySelector('.raw-overlay').style.opacity =  1 - (Y/50) ;
 			}else{
 				document.querySelector('.raw-overlay').style.opacity = 0
 			}
 		}
 	</script>
 	<body>
-		<div class="rm-logo">
+		<div class="rm-footer-layer"></div>
+		<div class="rm-logo fade">
 			<img src="./assets/logo.png" alt="">
 		</div>
-		<div class="rm-home-navigation">
+		<div class="rm-home-navigation fade">
 			<ul class="linklist red">
 				<li class="linklist-item">
 					<a href="./about.html">
@@ -118,15 +124,15 @@
 				</li>
 			</ul>
 		</div>
-		<div class="raw-overlay"></div>
-		<div class="eyeballs">
+		<div class="raw-overlay fade"></div>
+		<div class="eyeballs fade">
 			<div class="lefteye">
 				<img src="./assets/Eye ball_2x.png" class="pupil1" alt="" srcset="">
-				<img src="./assets/eye-left.png" alt="" srcset="">
+				<img src="./assets/eye-right.png" alt="" srcset="">
 			</div>
 			<div class="righteye">
 				<img src="./assets/Eye ball_2x.png" class="pupil2" alt="" srcset="">
-				<img src="./assets/eye-right.png" alt="" srcset="">
+				<img src="./assets/eye-left.png" alt="" srcset="">
 			</div>
 		</div>
 		<script type="module">
@@ -156,7 +162,7 @@
 				camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, .1, 2000 );
 				camera.position.z = .1;
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0xa0a0a0 );;
+				scene.background = new THREE.Color( 0x9eadba);;
 
 				// add light
 				const hlight = new THREE.AmbientLight (0xffffff,1.2);
@@ -233,8 +239,6 @@
 				controls.update();
 
 				renderer.render( scene, camera );
-
-				stats.update();
 
 			}
 

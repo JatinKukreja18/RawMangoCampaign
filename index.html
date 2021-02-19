@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="https://use.typekit.net/mtx0lou.css">
 		<link type="text/css" rel="stylesheet" href="main.css">
 		<link rel="stylesheet" type="text/css" href="landscape.css" media="screen and (orientation: landscape)">
-
+		<script src="./visibility.js"></script>
 	</head>
 	<script>
 		document.querySelector(':root').style.setProperty('--vh', window.innerHeight / 100 + 'px');
@@ -17,8 +17,7 @@
 				.setProperty('--vh', window.innerHeight / 100 + 'px');
 		})
 		window.addEventListener('load',function () {
-			screen.orientation.lock() 
-			document.addEventListener('visibilitychange', function(){
+			document.addEventListener(getVisibilityEvent(browserPrefix), function(){
 				console.log(document.visibilityState);
 				if(document.visibilityState){
 					if(document.querySelector('#backaudio').paused){
@@ -30,7 +29,7 @@
 					document.querySelector('#backaudio').pause();
 				}
 				
-			});
+			}, false);
 		})
 		window.addEventListener('mousemove',initiateInteraction);
 		window.addEventListener('touchmove',initiateInteractionMobile);
@@ -142,7 +141,7 @@
 			<span>TAP AND DRAG </span>
 		</div>
 		<div class="rm-footer-layer"></div>
-		<div class="rm-logo ">
+		<div class="rm-logo fade">
 			<img src="./assets/logo.png" alt="">
 		</div>
 		<div class="rm-logo-mobile fade">

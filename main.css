@@ -171,8 +171,8 @@ a, button, input, select {
 .linklist-item a{
 	font-size: 16px;
 	color: #fefefe;
-	/* text-decoration: underline; */
-	margin-right: 10px;
+	text-decoration: underline;
+	/* margin-right: 10px; */
 	cursor: pointer;
 	text-transform: uppercase;
 	font-family: 'neue-haas-grotesk-display';

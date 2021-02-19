@@ -9,6 +9,14 @@
 		
 	</head>
 	<script>
+		window.addEventListener('hover',function(){
+			document.querySelector('#backaudio').play(function(e){
+				console.log(e);
+			})
+		})
+		window.addEventListener('touhcend',function(){
+			document.querySelector('#backaudio').play()
+		})
 		window.addEventListener('mousemove',initiateInteraction);
 		window.addEventListener('touchmove',initiateInteractionMobile);
 		window.addEventListener("orientationchange", function(e){
@@ -17,10 +25,19 @@
 
 		const wait = setInterval(() => {
 			if(document.querySelector('canvas')){
+				document.querySelector('canvas').addEventListener('click',startMusic);
+				document.querySelector('canvas').addEventListener('touchend',startMusic);
 				clearInterval(wait);
 			}
 		}, 100);
+		function startMusic(){
 
+			if(document.querySelector('.rm-intro')) document.querySelector('.rm-intro').classList.add('hide');
+			if(document.querySelector('.rm-intro-mobile')) document.querySelector('.rm-intro-mobile').classList.add('hide');
+			if(document.querySelector('#backaudio').paused){
+				document.querySelector('#backaudio').play();
+			}
+		}
 		function initiateInteraction(e){
 			const xoffset = e.x /window.innerWidth * 100;
 			const yoffset = e.y /window.innerHeight * 100;
@@ -62,18 +79,18 @@
 		}
 	</script>
 	<body>
-		<audio src="./assets/NASA Space Sounds_Cropped for loop.mp4" loop autoplay preload="auto" style="display:none" controls></audio>
+		<audio src="./assets/NASA Space Sounds_Cropped for loop.mp4" loop id="backaudio" preload="auto" style="display:none" controls></audio>
 		<div class="rm-loader ">
 			<div class="rm-loader-pos">
 				<img src="./assets/RM_Other_TypeAnimation_full-logo.gif" alt="" srcset="">
 				<div class="loader-num">0%</div>
 			</div>
 		</div>
-		<div class="rm-intro">
+		<div class="rm-intro fade">
 			<img src="./assets/mouse.svg" alt="" srcset="">
 			<span>CLICK AND DRAG OR MOVE CURSOR</span>	
 		</div>
-		<div class="rm-intro-mobile">
+		<div class="rm-intro-mobile fade">
 			<img src="./assets/phone.svg" alt="" srcset="">
 			<span>TAP AND DRAG </span>
 		</div>
@@ -237,10 +254,6 @@
 
 						}
 					}, 300);
-					setTimeout(() => {
-						if(document.querySelector('.rm-intro')) document.querySelector('.rm-intro').classList.add('hide');
-						if(document.querySelector('.rm-intro-mobile')) document.querySelector('.rm-intro-mobile').classList.add('hide');
-					}, 5000);
 				};
 
 

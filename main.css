@@ -336,7 +336,7 @@ a, button, input, select {
     flex-direction: column;
 	pointer-events: none;
 	transition: 1s;
-	opacity: 1;
+	opacity: 0;
 	width: 100%;
 }
 .rm-intro.hide,.rm-intro-mobile.hide{
@@ -344,6 +344,7 @@ a, button, input, select {
 }
 .rm-intro-mobile{
 	display: none;
+	flex-direction: row;
 }
 @media only screen and (max-width: 950px	){
 	.rm-container{

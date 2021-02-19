@@ -1,20 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="56" height="70" viewBox="0 0 56 70">
-    <defs>
-        <filter id="yr7z93m2ia" width="119.5%" height="193.2%" x="-9.7%" y="-47.5%" filterUnits="objectBoundingBox">
-            <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
-            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7"/>
-            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.598694274 0"/>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-    </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="28" viewBox="0 0 16 28">
     <g fill="none" fill-rule="evenodd">
         <g stroke="#FFF" stroke-width="1.2">
-            <g filter="url(#yr7z93m2ia)" transform="translate(-692 -613) translate(582 634)">
-                <g transform="translate(131)">
-                    <rect width="14.4" height="27.6" rx="7.2"/>
+            <g>
+                <g transform="translate(-157 -13) translate(27 14) translate(131)">
+                    <rect width="14.4" height="25.6" rx="7.2"/>
                     <path d="M7.2 12.065L7.2 6.731"/>
                 </g>
             </g>

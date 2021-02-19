@@ -1,5 +1,5 @@
 :root{
-	--vh: 100vh;
+	--vh: 600px;
 }
 body {
 	margin: 0;
@@ -17,9 +17,9 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
+/* a:hover {
 	text-decoration: underline;
-}
+} */
 
 button {
 	cursor: pointer;
@@ -126,7 +126,7 @@ a, button, input, select {
 	transition: .2s;
 	opacity: 0;
 	z-index: 1;
-	mix-blend-mode: overlay;
+	mix-blend-mode: multiply;
 }
 
 /* about */
@@ -171,8 +171,9 @@ a, button, input, select {
 .linklist-item a{
 	font-size: 16px;
 	color: #fefefe;
-	text-decoration: underline;
+	/* text-decoration: underline; */
 	margin-right: 10px;
+	cursor: pointer;
 	text-transform: uppercase;
 	font-family: 'neue-haas-grotesk-display';
 }
@@ -272,6 +273,7 @@ a, button, input, select {
 	bottom: 35px;
 	left: 75px;
 	height: 55px;
+	z-index: 5;
 }
 .rm-logo img{
 	height: 100%;
@@ -279,6 +281,7 @@ a, button, input, select {
 .rm-home-navigation{
 	position: fixed;
 	bottom: 35px;
+	z-index: 5;
 	right: 75px;
 }
 .rm-footer-layer{
@@ -318,7 +321,7 @@ a, button, input, select {
 }
 .rm-loader-pos{
 	margin-top: auto;
-	padding-bottom: 90px;
+	padding-bottom: 160px;
 	align-items: center;
 	justify-content: center;
 	display: flex;
@@ -330,6 +333,7 @@ a, button, input, select {
 }
 
 .rm-logo-mobile{
+	z-index: 5;
 	display: none;
 }
 .rm-intro,.rm-intro-mobile{
@@ -347,10 +351,50 @@ a, button, input, select {
 .rm-intro.hide,.rm-intro-mobile.hide{
 	opacity: 0;
 }
+.rm-intro-mobile svg {
+	margin-right: 10px;
+	width: 14px;
+} 
+.rm-intro svg {
+	margin-bottom: 10px;
+	width: 15px;
+} 
 .rm-intro-mobile{
 	display: none;
 	flex-direction: row;
 }
+/* loading */
+.loading{
+	width: 68px;
+    font-size: 16px;
+    color: #ff0000;
+}
+.loading:after {
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: bottom;
+	-webkit-animation: ellipsis steps(4,end) 900ms infinite;      
+	animation: ellipsis steps(4,end) 900ms infinite;
+	content: "\2026"; /* ascii code for the ellipsis character */
+	width: 0px;
+  }
+  
+  @keyframes ellipsis {
+	to {
+	  width: 20px;    
+	}
+  }
+  
+  @-webkit-keyframes ellipsis {
+	to {
+	  width: 20px;    
+	}
+  }
+/* @media only screen and (min-width: 851px	){
+.rm-logo-mobile{
+	display: none;
+}
+} */
 @media only screen and (max-width: 950px	){
 	.rm-container{
 		padding: 0 40px;
@@ -410,10 +454,10 @@ a, button, input, select {
 	.linklist-item a{
 		margin-right: 0;
 	}
-	.linklist-item img,
+	/* .linklist-item img,
 	.linklist-item svg{
 		display: none;
-	}
+	} */
 	.rm-about-header{
 		pointer-events: none;
 		height: 100vh;

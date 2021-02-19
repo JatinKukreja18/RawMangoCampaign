@@ -31,6 +31,10 @@
 				
 			}, false);
 		})
+		window.addEventListener('ondrag',function(){
+			console.log('im moving');
+		});
+
 		window.addEventListener('mousemove',initiateInteraction);
 		window.addEventListener('touchmove',initiateInteractionMobile);
 		window.addEventListener("orientationchange", function(e){
@@ -44,7 +48,7 @@
 				// document.querySelector('canvas').addEventListener('touchend',startMusic);
 				document.body.addEventListener('touchstart',startMusic);
 				window.addEventListener('click',startMusic);
-				window.addEventListener('mouseover',startMusic);
+				// window.addEventListener('mouseover',startMusic);
 				window.addEventListener('touchend',startMusic);
 				clearInterval(wait);
 			}

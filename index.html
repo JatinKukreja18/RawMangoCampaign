@@ -86,20 +86,31 @@
 			if(Y < 40){
 				finalY = 40
 			}
-			if(X > 95){
-				finalX = 95
+			if(X > 90){
+				finalX = 90
 			}
 			const minTop= 3;
 			document.querySelector('.pupil1').style.transform = "translate(" + finalX + "%," + (finalY - 36) + "%)";
 			document.querySelector('.pupil2').style.transform = "translate(" + finalX + "%," + (finalY - 36) + "%)";
-			
-			if(Y < 5){
-				document.querySelector('.raw-overlay').style.opacity =  1 
-			}
-			else if(Y < 50 & Y > 5){
-				document.querySelector('.raw-overlay').style.opacity =  1 - (Y/50) ;
+
+			if(window.innerWidth < 767){
+				if(Y < 30){
+					document.querySelector('.raw-overlay').style.opacity =  1 
+				}
+				else if(Y < 75 & Y > 30){
+					document.querySelector('.raw-overlay').style.opacity =  1 - (Y/75) ;
+				}else{
+					document.querySelector('.raw-overlay').style.opacity = 0
+				}
 			}else{
-				document.querySelector('.raw-overlay').style.opacity = 0
+				if(Y < 15){
+					document.querySelector('.raw-overlay').style.opacity =  1 
+				}
+				else if(Y < 75 & Y > 15){
+					document.querySelector('.raw-overlay').style.opacity =  1 - (Y/75) ;
+				}else{
+					document.querySelector('.raw-overlay').style.opacity = 0
+				}
 			}
 		}
 	</script>

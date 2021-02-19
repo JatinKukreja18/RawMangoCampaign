@@ -2,11 +2,13 @@
 <html lang="en">
 	<head>
 		<title>Others - Raw Mango</title>
+		<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="stylesheet" href="https://use.typekit.net/mtx0lou.css">
 		<link type="text/css" rel="stylesheet" href="main.css">
-		
+		<link rel="stylesheet" type="text/css" href="landscape.css" media="screen and (orientation: landscape)">
+
 	</head>
 	<script>
 		document.querySelector(':root').style.setProperty('--vh', window.innerHeight / 100 + 'px');
@@ -15,6 +17,7 @@
 				.setProperty('--vh', window.innerHeight / 100 + 'px');
 		})
 		window.addEventListener('load',function () {
+			screen.orientation.lock() 
 			document.addEventListener('visibilitychange', function(){
 				console.log(document.visibilityState);
 				if(document.visibilityState){
@@ -279,6 +282,7 @@
 				// camera.autoRotate = true;
 
 				window.addEventListener( 'resize', onWindowResize );
+				window.addEventListener( 'orientationchange', onWindowResize );
 				manager.onLoad = function ( ) {
 
 					setTimeout(() => {
@@ -312,7 +316,7 @@
 			}
 
 			function onWindowResize() {
-
+				console.log(window.orientation);
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 

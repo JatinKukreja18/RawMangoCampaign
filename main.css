@@ -419,6 +419,7 @@ a, button, input, select {
 		height: 100vh;
 		height: calc(100 * var(--vh));
 		padding-top: 0;
+		z-index: 2;
 	}
 	.about-close{
 		width: 20px;

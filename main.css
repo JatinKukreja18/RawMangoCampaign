@@ -414,6 +414,9 @@ a, button, input, select {
 	}
 }
 @media only screen and (max-width: 850px){
+	.righteye, .lefteye{
+		margin: 0 6px;
+	}
 	.rm-loader-pos {
 		justify-content: flex-end;
 		padding-bottom: 30px;

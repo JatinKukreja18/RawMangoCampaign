@@ -3,5 +3,14 @@
 }
 .rm-logo-mobile{
     width: 100px;
-    top: 5px;
+    /* top: 5px; */
+}
+.rm-loader-pos{
+    padding-bottom: 20px;
+}
+.rm-intro-mobile{
+    bottom: 30%;
+}
+.rm-home-navigation{
+    top: 30px;
 }

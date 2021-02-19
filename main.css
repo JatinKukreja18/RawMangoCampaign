@@ -1,3 +1,6 @@
+:root{
+	--vh: 100vh;
+}
 body {
 	margin: 0;
 	/* background-color: #000; */
@@ -119,6 +122,7 @@ a, button, input, select {
 	background-color: #ff0000;
 	width: 100vw;
 	height: 100vh;
+	height: calc(100 * var(--vh));
 	transition: .2s;
 	opacity: 0;
 	z-index: 1;
@@ -301,6 +305,7 @@ a, button, input, select {
 .rm-loader{
 	width: 100vw;
 	height: 100vh;
+	height: calc(100 * var(--vh));
 	z-index: 5;
 	display: flex;
 	background-image: url('./assets/creepy-desktop.png');
@@ -412,6 +417,7 @@ a, button, input, select {
 	.rm-about-header{
 		pointer-events: none;
 		height: 100vh;
+		height: calc(100 * var(--vh));
 		padding-top: 0;
 	}
 	.about-close{

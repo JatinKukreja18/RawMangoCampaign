@@ -9,6 +9,13 @@
 		
 	</head>
 	<script>
+		window.addEventListener('load',function () {
+			document.querySelector(':root').style.setProperty('--vh', window.innerHeight / 100 + 'px');
+			window.addEventListener('resize', () => {
+				document.querySelector(':root').style
+					.setProperty('--vh', window.innerHeight / 100 + 'px');
+			})
+		})
 		window.addEventListener('hover',function(){
 			document.querySelector('#backaudio').play(function(e){
 				console.log(e);

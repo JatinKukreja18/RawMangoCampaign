@@ -399,7 +399,7 @@ a, button, input, select {
 		display: flex;
 	}
 	.rm-loader{
-		background-image: url('./assets/creepy.jpg');
+		background-image: url('./assets/creepy.png');
 	}
 	.rm-home-navigation{
 		right: 0%;

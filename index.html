@@ -11,6 +11,9 @@
 		<script src="./visibility.js"></script>
 	</head>
 	<script>
+		window.addEventListener('DOMContentLoaded',function(){
+            window.sessionStorage.setItem('othervisited',true)
+		})
 		document.querySelector(':root').style.setProperty('--vh', window.innerHeight / 100 + 'px');
 		window.addEventListener('resize', () => {
 			document.querySelector(':root').style
@@ -98,7 +101,8 @@
 					document.querySelector('.raw-overlay').style.opacity =  1 
 				}
 				else if(Y < 75 & Y > 30){
-					document.querySelector('.raw-overlay').style.opacity =  1 - (Y/75) ;
+					console.log(Y-55/75);
+					document.querySelector('.raw-overlay').style.opacity =  1 - (Y-55/75) ;
 				}else{
 					document.querySelector('.raw-overlay').style.opacity = 0
 				}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.typekit.net/mtx0lou.css">
+    <link rel="stylesheet" href="main.css">
+    <script>
+        window.addEventListener('DOMContentLoaded',function(){
+            if(sessionStorage.hasOwnProperty('othervisited')){
+                console.log('has visited, keep at https://rawmango.com/');
+            }else{
+                console.log('has not visited, replace link with https://rawmango.com/others/index.html');
+                window.location.replace("https://rawmango.com/others/index.html")
+            }
+        })
+    </script>
+</head>
+<body class="theme-red">
+  Dummy Home Page
+</body>
+</html>
